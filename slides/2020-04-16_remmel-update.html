@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Things I Would Love to Learn</h1>
+					<h5>Chris Remmel</h5>
+					<h6>2020-04-21</h6>
+				</section>
+				<section>
+					<h1>Bayesian Statistics</h1>
+					<ul>
+						<li>Probabilistic Programming & Bayesian Methods for Hackers
+						<li>Doing Bayesian Data Analysis</li>
+						<li>Bayesian Statistics: From Concept to Data Analysis</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Casual Inference</h1>
+					<ul>
+						<li>Casual Inference: The Mixtape</li>
+						<li>Casual Inference: What If</li>
+						<li>The Book of Why</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Deep Learning</h1>
+					<ul>
+						<li>deeplearning.ai</li>
+						<li>fast.ai</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'node_modules/reveald3/reveald3.js' }
+				]
+			});
+			Reveal.configure({
+				slideNumber: true,
+				transition: "none"
+				});
+		</script>
+	</body>
+</html>

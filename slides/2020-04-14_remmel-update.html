@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>dAbL Computational Update</h1>
+					<h5>Chris Remmel</h5>
+					<h6>2020-04-13</h6>
+				</section>
+				<section>
+					<h5>Generalized UMAP Analysis Process</h5>
+					<ol>
+						<li>Perform UMAP Clustering using many different values for n_neighbors</li>
+						<li>Make subjective judgement for n_neighbors that makes sense, if any</li>
+						<li>Perform clustering using algorithm appropriate to structure</li>
+						<li>T-test clusters to investigate what features are driving UMAP structure</li>
+						<li>Permute labels and t-test repeatedly to decide if significance is likely by chance</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Choose n_neighbors and min_dist</h2>
+					<div class="fig-container" data-file="jones/2020-04-14_jones_exploratory-chart.html"></div>
+				</section>
+				<section>
+					<h2>Choose n_neighbors and min_dist</h2>
+					<img src="jones/2020-04-14_jones_umap-10-neighbors.png">
+				</section>
+				<section>
+					<h2>Perform clustering</h2>
+					<img src="jones/2020-04-14_jones_umap-10-neighbors-clusters.png">
+				</section>
+				<section>
+					<h2>T-test clusters one feature at a time</h2>
+					<img src="jones/2020-04-14_jones-cohort-p-values.png">
+				</section>
+				<section>
+					<h2>Validate with permutation test</h2>
+					<img src="jones/2020-04-14_jones_permute-violin.png">
+				</section>
+				<section>
+					<h2>Another day to tie back to data</h2>
+					<img src="jones/2020-04-14_jones_umap-igg3-size.png">
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'node_modules/reveald3/reveald3.js' }
+				]
+			});
+			Reveal.configure({
+				slideNumber: true,
+				transition: "none"
+				});
+		</script>
+	</body>
+</html>

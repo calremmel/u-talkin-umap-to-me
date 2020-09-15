@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>U Talkin' UMAP to Me?</h2>
+					<h7 style="font-style: italic;">Or, Practical Dimensionality Reduction: An Overview</h7>
+					<img src="figures/1_youtalkintome.png" height=400>
+					<h4>Chris Remmel | 2020-09-13</h4>
+				</section>
+				<section>
+					<h2>Who I Am</h2>
+				</section>
+				<section>
+					<h2>What is Dimensionality Reduction?</h2>
+					<img src="figures/dimensionality_reduction.png" height=400>
+				</section>
+				<section>
+					<h2>Why would you do this?</h2>
+					<h6>Reason 1: Dealing with Multicollinearity</h6>
+					<img src="figures/multicollinearity.png" height=400>
+				</section>
+				<section>
+					<h2>Why would you do this?</h2>
+					<h6>Reason 2: Visualization</h6>
+				</section>
+				<section>
+					<h2>The Methods to Know</h2>
+					<ul>
+						<li>PCA</li>
+						<li>T-SNE</li>
+						<li>UMAP</li>
+					</ul>
+				</section>
+				<section>
+					<h2>PCA</h2>
+					<img src="figures/pca-1.png">
+				</section>
+				<section>
+					<h2>PCA</h2>
+					<img src="figures/pca-2.gif">
+				</section>
+				<section>
+					<h2>PCA</h2>
+					<img src="figures/pca-3.gif">
+				</section>
+				<section>
+					<h2>Wisconsin Breast Cancer Dataset</h2>
+					<img src="figures/bc_pca.png">
+				</section>
+				<section>
+					<h2>Wisconsin Breast Cancer Dataset</h2>
+					<img src="figures/bc_scree.png">
+				</section>
+				<section>
+					<h2>This is what a scree is</h2>
+					<img src="figures/scree.jpg" height=500>
+				</section>
+				<section>
+					<h2>Handdrawn Digits Dataset</h2>
+					<img src="figures/digits.png">
+				</section>
+				<section>
+					<h2>Digits PCA</h2>
+					<img src="figures/digits_pca.png" height=550>
+				</section>
+				<section>
+					<h2>Digits PCA Scree</h2>
+					<img src="figures/digits_scree.png">
+				</section>
+				<section>
+					<h2>T-SNE and UMAP</h2>
+				</section>
+				<section>
+					<h2>Graph-Based</h2>
+					<img src="figures/graph-network.jpg">
+				</section>
+				<section>
+					<h2>T-SNE</h2>
+					<ul>
+						<li>t-Distributed</li>
+						<li>Stochastic</li>
+						<li>Neighbor</li>
+						<li>Embedding</li>
+					</ul>
+				</section>
+				<section>
+					<h2>UMAP</h2>
+					<h4>The New Kid on the Block</h4>
+				</section>
+				<section>
+					<h2>UMAP</h2>
+					<ul>
+						<li>Uniform</li>
+						<li>Manifold</li>
+						<li>Approximation and</li>
+						<li>Projection</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Why UMAP Instead of T-SNE?</h2>
+					<ol>
+						<li>It's much, MUCH faster</li>
+						<li>Theoretically better preservation of global structure</li>
+						<li>The hyperparameters are more intuitive</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Digits PCA</h2>
+					<img src="figures/digits_pca.png" height=550>
+				</section>
+				<section>
+					<h2>Digits T-SNE</h2>
+					<img src="figures/digits_tsne.png" height=550>
+				</section>
+				<section>
+					<h2>Digits UMAP</h2> 
+					<img src="figures/digits_umap.png" height=550>
+				</section>
+				<section>
+					<h2 style="text-align: left;">McDonalds PCA</h2>
+					<div class="fig-container" data-file="figures/mcdonalds_pca.html"></div>
+				</section>
+				<section>
+					<h2 style="text-align: left;">McDonalds UMAP</h2>
+					<div class="fig-container" data-file="figures/mcdonalds_umap.html"></div>
+				</section>				<section>
+					<h5>Generalized UMAP Analysis Process</h5>
+					<ol>
+						<li>Perform UMAP Clustering using many different values for n_neighbors</li>
+						<li>Make subjective judgement for n_neighbors that makes sense, if any</li>
+						<li>Perform clustering using algorithm appropriate to structure</li>
+						<li>T-test clusters to investigate what features are driving UMAP structure</li>
+						<li>Permute labels and t-test repeatedly to decide if significance is likely by chance</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Choose n_neighbors and min_dist</h2>
+					<div class="fig-container" data-file="figures/2020-04-14_jones_exploratory-chart.html"></div>
+				</section>
+				<section>
+					<h2>Choose n_neighbors and min_dist</h2>
+					<img src="figures/2020-04-14_jones_umap-10-neighbors.png">
+				</section>
+				<section>
+					<h2>Perform clustering</h2>
+					<img src="figures/2020-04-14_jones_umap-10-neighbors-clusters.png">
+				</section>
+				<section>
+					<h2>T-test clusters one feature at a time</h2>
+					<img src="figures/2020-04-14_jones-cohort-p-values.png">
+				</section>
+				<section>
+					<h2>Validate with permutation test</h2>
+					<img src="figures/2020-04-14_jones_permute-violin.png">
+				</section>
+				<section>
+					<h2>Another day to tie back to data</h2>
+					<img src="figures/2020-04-14_jones_umap-igg3-size.png">
+				</section>
+				<section>
+					<h2>Zoe Time</h2>
+					<img src="figures/zoe.jpg" height=550>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'node_modules/reveald3/reveald3.js' }
+				]
+			});
+			Reveal.configure({
+				slideNumber: true,
+				transition: "none"
+				});
+		</script>
+	</body>
+</html>
